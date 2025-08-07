@@ -1,0 +1,34 @@
+
+
+---
+**Date:** 2025-08-07 17:16:52
+**Branch:** feature/AG-18_20250807171523
+---
+
+Create a Mapping adaptor
+
+As a client, I want to create a POJO from the source.xml and expected_target.xml files, and the data should be mapped from the source pojo to the target POJO by looking at the mapping_with_validation.json file , after mapping its should create a new xml file whose name is target_{current timestamp}.
+
+
+
+Non-Functional Requirements
+
+* Must be written in Java 17 using Spring Boot 3.5.3
+* Should follow layered architecture (Controller, Service, Repository).
+* Must use Maven for build.
+* Data should be stored in a Mongodb database.
+* Should provide API documentation using Swagger/OpenAPI.
+* Unit and integration tests must be written using JUnit and Mockito.
+* Must provide Dockerfile for containerization.
+* Should include GitHub Actions CI workflow for build, test, and Docker image creation.
+
+
+
+
+
+GitHub-URL:[https://github.com/msn5566/adaptor1|https://github.com/msn5566/adaptor1|smart-link] 
+checkout_branch: development
+Repository-Name: adaptor1
+
+Package-Name: adaptor
+--- END ---
