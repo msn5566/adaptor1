@@ -1,0 +1,32 @@
+
+
+---
+**Date:** 2025-08-07 14:01:34
+**Branch:** feature/AD1-3_20250807140039
+---
+
+Implement XML-to-XML transformation logic
+
+Develop logic to parse source XML, apply transformation using mapping rules from JSON, and generate the target XML.[^mapping_with_validation.json] [^expected_target.xml] [^source.xml] 
+
+
+
+
+
+Non-Functional Requirements
+
+* Must be written in Java 21 using Spring Boot 3.5.*
+* Should follow layered architecture (Controller, Service, Repository).
+* Must use Maven for build.
+* Data should be stored in a Mongodb database.
+* Should provide API documentation using Swagger/OpenAPI.
+* Unit and integration tests must be written using JUnit and Mockito.
+* Must provide Dockerfile for containerization.
+* Should include GitHub Actions CI workflow for build, test, and Docker image creation.
+
+ 
+
+GitHub-URL: [https://github.com/msn5566/adaptor1|https://github.com/msn5566/adaptor1|smart-link] 
+checkout_branch: development
+Repository-Name: adaptor1
+--- END ---
