@@ -1,0 +1,150 @@
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xs:element name="Order">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="OrderId" type="xs:string"/>
+                <xs:element name="OrderDate" type="xs:date"/>
+                <xs:element name="Customer">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="CustomerId" type="xs:string"/>
+                            <xs:element name="Name">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="3"/>
+                                        <xs:maxLength value="50"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="Contact">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Email" type="xs:string"/>
+                                        <xs:element name="Phone" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Items">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Item" minOccurs="1" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="ItemId">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:minLength value="2"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Description" type="xs:string"/>
+                                        <xs:element name="Quantity" type="xs:integer">
+                                             <xs:simpleType>
+                                                <xs:restriction base="xs:integer">
+                                                    <xs:minInclusive value="1"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Price" type="xs:decimal"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Billing">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="CustomerId" type="xs:string"/>
+                            <xs:element name="TotalAmount">
+                                 <xs:simpleType>
+                                    <xs:restriction base="xs:decimal">
+                                        <xs:minInclusive value="0.01"/>
+                                        <xs:maxInclusive value="100000.0"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="Paid" type="xs:boolean"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="PurchaseOrder">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Id" type="xs:string"/>
+                <xs:element name="Date" type="xs:date"/>
+                <xs:element name="Client">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Id" type="xs:string"/>
+                            <xs:element name="FullName">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="3"/>
+                                        <xs:maxLength value="50"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="Email" type="xs:string"/>
+                            <xs:element name="Phone" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Products">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Product" minOccurs="1" maxOccurs="100">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Code">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:minLength value="2"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Name" type="xs:string"/>
+                                        <xs:element name="Qty" type="xs:integer">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:integer">
+                                                    <xs:minInclusive value="1"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="UnitPrice" type="xs:decimal"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Payment">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="CustomerId" type="xs:string"/>
+                            <xs:element name="Amount">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:decimal">
+                                        <xs:minInclusive value="0.01"/>
+                                        <xs:maxInclusive value="100000.0"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="Status" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
